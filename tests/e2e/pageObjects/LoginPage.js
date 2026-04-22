@@ -8,19 +8,19 @@ class LoginPage{
     this.loginUrl = `${baseUrl}/login`;
     this.dashboardUrl = `${baseUrl}/`;
 
-    this.loginBtn = page.locator("button[title='Log in']");
-    this.emailField = page.locator("input[name='emailOrUsername']");
-    this.passwordField = page.locator("input[name='password']");
-    this.dashboard = page.locator("div[title='Dashboard']");
+    this.loginBtn = this.page.locator("button[title='Log in']");
+    this.emailField = this.page.locator("input[name='emailOrUsername']");
+    this.passwordField = this.page.locator("input[name='password']");
+    this.dashboard = this.page.locator("div[title='Dashboard']");
   }
 
-  async goToLoginPage() {
+  async navigateToLoginPage() {
     await this.page.goto(this.loginUrl);
   }
 
-  async inputLogin(inputs){
-    await this.emailField.fill(inputs[0].email)
-    await this.passwordField.fill(inputs[0].password)
+  async loginToDashboard(dataTable){
+    await this.emailField.fill(dataTable[0].email)
+    await this.passwordField.fill(dataTable[0].password)
     await this.loginBtn.click()
   }
 }
