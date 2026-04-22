@@ -2,24 +2,26 @@ const baseUrl = 'http://localhost:3000'
 
 class LoginPage{
 
-  constructor (){
+  constructor (page){
+    this.page = page;
     this.baseUrl = baseUrl;
     this.loginUrl = `${baseUrl}/login`;
     this.dashboardUrl = `${baseUrl}/`;
-    this.loginBtnSelector= "button[title='Log in']";
-    this.emailFieldSelector = "input[name='emailOrUsername']";
-    this.passwordFieldSelector = "input[name='password']";
-    this.dashboardSelector = "div[title='Dashboard']";
+
+    this.loginBtn = page.locator("button[title='Log in']");
+    this.emailField = page.locator("input[name='emailOrUsername']");
+    this.passwordField = page.locator("input[name='password']");
+    this.dashboard = page.locator("div[title='Dashboard']");
   }
 
   async goToLoginPage() {
-    await page.goto(this.loginUrl);
+    await this.page.goto(this.loginUrl);
   }
 
   async inputLogin(inputs){
-    await page.locator(this.emailFieldSelector).fill(inputs[0].email)
-    await page.locator(this.passwordFieldSelector).fill(inputs[0].password)
-    await page.locator(this.loginBtnSelector).click()
+    await this.emailField.fill(inputs[0].email)
+    await this.passwordField.fill(inputs[0].password)
+    await this.loginBtn.click()
   }
 }
 module.exports = { LoginPage };
