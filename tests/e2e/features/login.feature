@@ -1,5 +1,5 @@
 Feature: Login
-    As an admin
+    As an admin user
     I want to log in to the website admin panel
     so that I can manage my projects
 
