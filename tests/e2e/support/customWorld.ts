@@ -11,6 +11,7 @@ import {
 } from '@playwright/test';
 
 import { LoginPage } from '../pageObjects/LoginPage';
+import { UserSettingPage } from '../pageObjects/UserSettingPage';
 
 export class CustomWorld extends World {
   browser!: Browser;
@@ -18,6 +19,7 @@ export class CustomWorld extends World {
   page!: Page;
 
   loginPage!: LoginPage;
+  userSettingPage!: UserSettingPage;
 
   users: Record<string, unknown> = {};
   meetings: Record<string, unknown> = {};
