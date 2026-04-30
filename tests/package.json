@@ -2,7 +2,7 @@
   "name": "tests",
   "version": "1.0.0",
   "scripts": {
-    "test:e2e": "cucumber-js --require-module ts-node/register --require cucumber.conf.js --require e2e/stepDefinitions/*.ts"
+    "test:e2e": "cucumber-js --require-module ts-node/register --require cucumber.conf.js --require e2e/stepDefinitions/**/*.ts"
   },
   "devDependencies": {
     "@cucumber/cucumber": "7.3.1",

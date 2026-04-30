@@ -30,11 +30,10 @@ export class LoginPage{
     await this.page.goto(this.loginUrl);
   }
 
-  public async loginToDashboard(dataTable: DataTable):Promise<void> {
-    const data = dataTable.hashes();
-
-    await this.emailField.fill(data[0].email)
-    await this.passwordField.fill(data[0].password)
+  public async loginToDashboard(loginDataTable: DataTable): Promise<void> {
+    const loginCredentials = loginDataTable.hashes();
+    await this.emailField.fill(loginCredentials[0].email)
+    await this.passwordField.fill(loginCredentials[0].password)
     await this.loginBtn.click()
   }
 }
