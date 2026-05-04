@@ -14,6 +14,8 @@ export class UserSettingPage {
   public readonly name: Locator;
   public readonly userName: Locator;
   public readonly addButton: Locator;
+  public readonly deleteButton: Locator;
+  public readonly editUserButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -28,6 +30,8 @@ export class UserSettingPage {
     this.name = this.page.locator("input[name='name']")
     this.userName = this.page.locator("input[name='username']")
     this.addButton = this.page.locator("button[title='Add User']").nth(1);
+    this.deleteButton = this.page.locator("button[title='Delete user']");
+    this.editUserButton = this.page.locator("button[title='Edit User']");
   }
 
   public async addUser(email: string, password: string, name: string, username: string):Promise<void> {
@@ -37,5 +41,12 @@ export class UserSettingPage {
     await this.name.fill(name);
     await this.userName.fill(username);
     await this.addButton.click();
+  }
+
+  public async deleteUser(email: string): Promise<void> {
+    const userRow = this.page.locator('tr').filter({ hasText: email });
+    await userRow.locator(this.editUserButton).click();
+    await this.deleteButton.click();
+    await this.deleteButton.click();
   }
 }

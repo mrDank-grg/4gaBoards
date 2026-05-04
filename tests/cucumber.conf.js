@@ -23,6 +23,8 @@ Before(async function () {
 });
 
 After(async function () {
+  await this.page.goto(this.userSettingPage.userSettingsUrl);
+  await this.userSettingPage.deleteUser(this.userEmail);
   await this.page.close();
   await this.context.close();
 });

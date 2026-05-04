@@ -13,6 +13,7 @@ Given('the admin user has navigated to users setting page', async function (this
 
 When('the admin user creates a new user with email {string}, password {string}, name {string} and username {string}',
   async function (this: CustomWorld, email: string, password: string, name: string, username: string) {
+  this.userEmail = email;
   await this.userSettingPage.addUserButton.click();
   await this.userSettingPage.addUser(email, password, name, username);
 });

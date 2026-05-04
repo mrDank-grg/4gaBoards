@@ -17,6 +17,7 @@ export class CustomWorld extends World {
   browser!: Browser;
   context!: BrowserContext;
   page!: Page;
+  userEmail!: string;
 
   loginPage!: LoginPage;
   userSettingPage!: UserSettingPage;
