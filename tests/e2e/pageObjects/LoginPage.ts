@@ -19,7 +19,6 @@ export class LoginPage{
     this.baseUrl = 'http://localhost:3000';
     this.loginUrl = `${this.baseUrl}/login`;
     this.dashboardUrl = `${this.baseUrl}/`;
-
     this.loginBtn = this.page.locator("button[title='Log in']");
     this.emailField = this.page.locator("input[name='emailOrUsername']");
     this.passwordField = this.page.locator("input[name='password']");
