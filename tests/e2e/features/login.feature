@@ -3,9 +3,9 @@ Feature: Login
     I want to log in to the website admin panel
     so that I can manage my projects
 
-  Scenario: login with valid credentials
-    Given admin user has navigated to the login page
-    When admin user logs in with following credentials
+  Scenario: Login with valid credentials
+    Given the admin user has navigated to the login page
+    When the admin user logs in with the following credentials:
       | email | password |
       | demo  | demo     |
-    Then admin user should be navigated to admin panel dashboard
+    Then the admin user should be navigated to admin panel dashboard
